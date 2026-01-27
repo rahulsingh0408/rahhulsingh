@@ -90,7 +90,7 @@ AWS Academy Cloud Foundations, AWS Certified Developer - Associate, Multiple CCN
           <p className="font-body text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in opacity-0" style={{
           animationDelay: '0.8s'
         }}>
-            Driven AI & Data Science dcrafting intelligent, scalable solutions with expertise in machine learning, deep learning, and cloud computing.
+            Driven AI & Data Science graduate crafting intelligent, scalable solutions with expertise in machine learning, deep learning, and cloud computing.
           </p>
 
           {/* CTA Buttons */}
