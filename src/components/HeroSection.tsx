@@ -81,7 +81,7 @@ AWS Academy Cloud Foundations, AWS Certified Developer - Associate, Multiple CCN
           <div className="h-16 md:h-20 flex items-center justify-center mb-8 animate-fade-in opacity-0" style={{
           animationDelay: '0.6s'
         }}>
-            <p className="font-mono text-lg md:text-2xl text-muted-foreground">
+            <p className="font-mono text-lg text-muted-foreground md:text-3xl">
               <TypewriterText texts={roles} speed={80} deleteSpeed={40} pauseDuration={2500} />
             </p>
           </div>
