@@ -24,8 +24,7 @@ const Footer = () => {
             top: 0,
             behavior: 'smooth'
           });
-        }} className="font-display text-3xl font-bold gradient-text">Rahul Singh
-          </a>
+        }} className="font-display text-3xl font-bold gradient-text">Thank You</a>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
@@ -45,14 +44,7 @@ const Footer = () => {
           </div>
 
           {/* Tech Stack Badge */}
-          <div className="flex items-center gap-2 text-xs text-muted-foreground/60 font-mono">
-            <span>Powered by</span>
-            <span className="px-2 py-1 rounded bg-muted">React</span>
-            <span>+</span>
-            <span className="px-2 py-1 rounded bg-muted">TypeScript</span>
-            <span>+</span>
-            <span className="px-2 py-1 rounded bg-muted">Tailwind</span>
-          </div>
+          
         </div>
       </div>
 
