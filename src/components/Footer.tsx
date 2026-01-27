@@ -37,7 +37,7 @@ const Footer = () => {
           {/* Copyright */}
           <div className="text-center">
             <p className="text-muted-foreground font-mono text-sm flex items-center gap-2">
-              Built with <Heart size={14} className="text-destructive animate-pulse" /> by Rahul Singh
+              Built  <Heart size={14} className="text-destructive animate-pulse" /> by Rahul Singh
             </p>
             <p className="text-muted-foreground/60 font-mono text-xs mt-2">
               © {currentYear} All rights reserved.
