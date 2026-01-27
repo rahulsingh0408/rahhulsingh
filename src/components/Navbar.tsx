@@ -54,7 +54,7 @@ const Navbar = ({
           behavior: 'smooth'
         });
       }}>
-          ​PORTFOLIO<span className="text-neon-purple">​</span>
+          ​Portfolio<span className="text-neon-purple">​</span>
         </a>
 
         {/* Desktop Navigation */}
