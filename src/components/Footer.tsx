@@ -24,7 +24,7 @@ const Footer = () => {
             top: 0,
             behavior: 'smooth'
           });
-        }} className="font-display text-3xl font-bold gradient-text">Thank You</a>
+        }} className="font-display text-3xl font-bold gradient-text">"Thank You"</a>
 
           {/* Social Links */}
           <div className="flex items-center gap-4">
