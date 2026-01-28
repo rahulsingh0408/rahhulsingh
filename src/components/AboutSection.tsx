@@ -14,7 +14,7 @@ const AboutSection = () => {
     degree: 'Diploma in Computer Engineering',
     institution: 'Sanketika Polytechnic',
     period: '2019 – 2022',
-    score: 'CGPA: 6.95'
+    score: 'CGPA: 6.97'
   }];
   const languages = ['English', 'Hindi', 'Telugu'];
   const interests = ['Coding', 'Digital Art', 'Podcasting', 'Meditation', 'Volunteering'];
