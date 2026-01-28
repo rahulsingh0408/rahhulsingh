@@ -3,48 +3,12 @@ import TypewriterText from './TypewriterText';
 const HeroSection = () => {
   const roles = ['AI Developer', 'Data Scientist', 'Machine Learning Engineer', 'Building Intelligence for Tomorrow'];
   const handleDownloadResume = () => {
-    // Create a simple text-based resume for download
-    const resumeContent = `
-RAHUL SINGH
-AI & Data Science Developer
-Email: singhrahul5367@gmail.com
-LinkedIn: linkedin.com/in/rahul-singh0408
-
-SUMMARY
-Driven and enthusiastic AI & Data Science developer with hands-on experience in machine learning, deep learning, data analysis, cloud computing, and modern web technologies.
-
-EDUCATION
-B.Tech CSE (AI & Data Science) - Vignan's Institute of Information Technology (2022-2026), CGPA: 7.45
-Diploma in Computer Engineering - Sanketika Polytechnic (2019-2022), CGPA: 6.95
-
-EXPERIENCE
-Software Development Intern - Symbiosis (May 2024 - June 2024)
-- Built a robust web scraping application to automate structured data extraction
-- Worked on data automation, scraping logic, and clean data pipelines
-
-SKILLS
-Python, C++, DSA, SQL, PowerBI, Tableau, Machine Learning, Deep Learning, TensorFlow, Generative AI, AWS, Cloud Computing, Cyber Security, Networking, HTML, CSS, JavaScript, Java, Data Analysis
-
-PROJECTS
-- Weather Web App - 5-day forecast using OpenWeatherMap API
-- Osteoporosis Risk Prediction - Image-based prediction using Random Forest
-- E-Waste Management System - Responsive web app with tracking
-- Asset Management Tool - Web scraping-based automated data extraction
-
-CERTIFICATIONS
-AWS Academy Cloud Foundations, AWS Certified Developer - Associate, Multiple CCNA modules, Python for Data Science (edX), NPTEL Cloud Computing, IBM Accelerating Deep Learning with GPUs, AI & ML Virtual Internship
-    `.trim();
-    const blob = new Blob([resumeContent], {
-      type: 'text/plain'
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Rahul_Singh_Resume.txt';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    const link = document.createElement('a');
+    link.href = '/RahulSingh_Resume.pdf';
+    link.download = 'RahulSingh_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
   const scrollToAbout = () => {
     document.querySelector('#about')?.scrollIntoView({
