@@ -105,6 +105,15 @@ const HeroSection = () => {
           <DialogHeader className="p-4 border-b border-primary/20 flex flex-row items-center justify-between">
             <DialogTitle className="font-display text-xl gradient-text">Resume Preview</DialogTitle>
             <div className="flex items-center gap-3">
+              <a
+                href="/RahulSingh_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-neon rounded-lg flex items-center gap-2 text-sm py-2 px-4"
+              >
+                <Eye size={16} />
+                Open in New Tab
+              </a>
               <button
                 onClick={handleDownloadResume}
                 className="btn-solid rounded-lg flex items-center gap-2 text-sm py-2 px-4"
@@ -114,12 +123,45 @@ const HeroSection = () => {
               </button>
             </div>
           </DialogHeader>
-          <div className="flex-1 overflow-hidden h-[calc(90vh-80px)]">
-            <iframe
-              src="/RahulSingh_Resume.pdf"
-              className="w-full h-full border-0"
-              title="Resume Preview"
-            />
+          <div className="flex-1 overflow-auto h-[calc(90vh-80px)] p-6">
+            <object
+              data="/RahulSingh_Resume.pdf"
+              type="application/pdf"
+              className="w-full h-full min-h-[600px]"
+            >
+              {/* Fallback for browsers that don't support embedded PDFs */}
+              <div className="flex flex-col items-center justify-center h-full gap-6 text-center">
+                <div className="w-24 h-24 rounded-2xl bg-primary/10 flex items-center justify-center">
+                  <Download className="text-primary" size={48} />
+                </div>
+                <div>
+                  <h3 className="font-display text-2xl font-bold text-foreground mb-2">
+                    PDF Preview Not Available
+                  </h3>
+                  <p className="text-muted-foreground max-w-md">
+                    Your browser doesn't support embedded PDF viewing. Use the buttons above to open in a new tab or download the resume.
+                  </p>
+                </div>
+                <div className="flex gap-4">
+                  <a
+                    href="/RahulSingh_Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-neon rounded-lg flex items-center gap-2"
+                  >
+                    <Eye size={18} />
+                    Open PDF
+                  </a>
+                  <button
+                    onClick={handleDownloadResume}
+                    className="btn-solid rounded-lg flex items-center gap-2"
+                  >
+                    <Download size={18} />
+                    Download
+                  </button>
+                </div>
+              </div>
+            </object>
           </div>
         </DialogContent>
       </Dialog>
