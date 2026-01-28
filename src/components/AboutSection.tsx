@@ -9,7 +9,7 @@ const AboutSection = () => {
     degree: 'B.Tech CSE (AI & Data Science)',
     institution: "Vignan's Institute of Information Technology",
     period: '2022 – 2026',
-    score: 'CGPA: 7.45'
+    score: 'CGPA: 7.43'
   }, {
     degree: 'Diploma in Computer Engineering',
     institution: 'Sanketika Polytechnic',
