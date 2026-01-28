@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Download, ChevronDown, Linkedin, Mail, Eye, X } from 'lucide-react';
+import { Download, ChevronDown, Linkedin, Mail, Eye } from 'lucide-react';
 import TypewriterText from './TypewriterText';
 import {
   Dialog,
@@ -122,25 +122,14 @@ const HeroSection = () => {
               </p>
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 w-full">
-              <a
-                href="/RahulSingh_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-neon rounded-lg flex items-center justify-center gap-2 flex-1"
-              >
-                <Eye size={18} />
-                View in Browser
-              </a>
-              <button
-                onClick={handleDownloadResume}
-                className="btn-solid rounded-lg flex items-center justify-center gap-2 flex-1"
-              >
-                <Download size={18} />
-                Download PDF
-              </button>
-            </div>
+            {/* Action Button */}
+            <button
+              onClick={handleDownloadResume}
+              className="btn-solid rounded-lg flex items-center justify-center gap-2 w-full"
+            >
+              <Download size={18} />
+              Download PDF
+            </button>
           </div>
         </DialogContent>
       </Dialog>
