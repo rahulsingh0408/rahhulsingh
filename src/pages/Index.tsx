@@ -11,7 +11,7 @@ import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
 const Index = () => {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(true); // ✅ always show on load
   const [isNeonTheme, setIsNeonTheme] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('theme') === 'neon';
@@ -19,16 +19,9 @@ const Index = () => {
     return false;
   });
 
-  useEffect(() => {
-    // Check if user has visited before
-    const hasVisited = sessionStorage.getItem('hasVisited');
-    if (hasVisited) {
-      setShowIntro(false);
-    }
-  }, []);
+  // ✅ REMOVED the sessionStorage useEffect that was skipping the intro
 
   useEffect(() => {
-    // Apply theme class to document
     if (isNeonTheme) {
       document.documentElement.classList.add('neon-theme');
     } else {
@@ -38,8 +31,7 @@ const Index = () => {
   }, [isNeonTheme]);
 
   const handleIntroComplete = () => {
-    setShowIntro(false);
-    sessionStorage.setItem('hasVisited', 'true');
+    setShowIntro(false); // ✅ no sessionStorage, so next reload shows intro again
   };
 
   const toggleTheme = () => {
@@ -49,7 +41,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       {showIntro && <TerminalIntro onComplete={handleIntroComplete} />}
-
       <div
         className={`transition-opacity duration-1000 ${
           showIntro ? 'opacity-0' : 'opacity-100'
