@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface TerminalIntroProps {
   onComplete: () => void;
@@ -8,6 +8,11 @@ const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
   const [lines, setLines] = useState<string[]>([]);
   const [currentLine, setCurrentLine] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   const terminalLines = [
     { text: '> Initializing AI Portfolio System...', delay: 0 },
@@ -20,33 +25,41 @@ const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
   ];
 
   useEffect(() => {
+    const timers: ReturnType<typeof setTimeout>[] = [];
+
     terminalLines.forEach((line, index) => {
-      setTimeout(() => {
+      const t = setTimeout(() => {
         setLines(prev => [...prev, line.text]);
         setCurrentLine(index + 1);
       }, line.delay);
+      timers.push(t);
     });
 
-    setTimeout(() => {
+    const completeTimer = setTimeout(() => {
       setIsComplete(true);
-      setTimeout(onComplete, 800);
+      const callbackTimer = setTimeout(() => {
+        onCompleteRef.current();
+      }, 800);
+      timers.push(callbackTimer);
     }, 4500);
+    timers.push(completeTimer);
+
+    // ✅ Cleanup: cancel all timers if component unmounts (e.g. Strict Mode double-invoke)
+    return () => {
+      timers.forEach(clearTimeout);
+    };
   }, []);
 
   return (
-    <div 
+    <div
       className={`fixed inset-0 z-50 bg-background flex items-center justify-center transition-opacity duration-1000 ${
         isComplete ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      {/* Scan line effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute left-0 right-0 h-[2px] bg-neon-cyan/30 animate-scan" />
       </div>
-
-      {/* CRT screen effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon-cyan/[0.02] to-transparent pointer-events-none" />
-
       <div className="w-full max-w-3xl mx-4 p-8 glass rounded-xl neon-border">
         <div className="flex items-center gap-2 mb-6 pb-4 border-b border-border">
           <div className="w-3 h-3 rounded-full bg-destructive" />
@@ -56,7 +69,6 @@ const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
             rahul@portfolio:~
           </span>
         </div>
-
         <div className="font-mono text-sm md:text-base space-y-2 min-h-[200px]">
           {lines.map((line, index) => (
             <div
@@ -75,7 +87,6 @@ const TerminalIntro = ({ onComplete }: TerminalIntroProps) => {
             <span className="terminal-cursor" />
           )}
         </div>
-
         <div className="mt-6 pt-4 border-t border-border">
           <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
             <span>NEURAL_CORE v2.0.26</span>
